@@ -45,9 +45,8 @@ Welcome to the react recipe app. You will be able to search for recipes, view re
 - Prisma Setup:
   - Add the `DATABASE_URL` in the `.env` file with your Aiven connection string.
 
-  - Initialize Prisma and generate the Prisma client:
+  - Synchronize Database:
     ```bash
-    npx prisma init // initialise database
     npx prisma db push // synchronize the database 
     ```
   - Start the backend server:
