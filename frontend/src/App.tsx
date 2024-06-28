@@ -6,7 +6,7 @@ import RecipeCard from "./components/RecipeCard";
 import RecipeModal from "./components/RecipeModal";
 import { AiOutlineSearch } from "react-icons/ai";
 
-type Tabs = "search" | "favourites";
+type Tabs = "search" | "favourites" | "custom";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -93,13 +93,23 @@ const App = () => {
         >
           Favourites
         </h1>
-
+        <h1
+          className={selectedTab === "custom" ? "tab-active" : ""}
+          onClick={() => setSelectedTab("custom")}
+        >
+          Custom Recipes
+        </h1>
+        <button type="button" className="custom-recipe-button">
+          <img className="plus-icon" src="/icon-plus.png"></img> 
+          <span className="custom-text">Add custom recipe</span>
+        </button>
       </div>
 
       {selectedTab === "search" && (
         <>
           <form onSubmit={(event) => handleSearchSubmit(event)}>
             <input
+              name="search"
               type="text"
               required
               placeholder="Enter a search term ..."
@@ -146,6 +156,12 @@ const App = () => {
               isFavourite={true}
             />
           ))}
+        </div>
+      )}
+
+      {selectedTab === "custom" && (
+        <div className="recipe-grid">
+          <h3>There are currently no custom recipes.</h3>
         </div>
       )}
 
