@@ -40,14 +40,27 @@ Welcome to the react recipe app. You will be able to search for recipes, view re
 
 - Aiven Setup:
   - Create a new database instance on Aiven.
+    - First create a project 
+      - Project name: Recipe-app
+      - Organization: My organization
+      - Billing: Billing group for My Organisation
+    - Create Service by selecting:
+      - PostgreSQL
+      - Free plan
+      - Region: Europe
+      - dn-lon
+      - Name and tag: recipe-app-db
+
   - Copy the connection string provided by Aiven.
+      - Once service has been created click on service name (recipe-app-db)
+      - Locate the Service URI in the Connection information panel and copy 
 
 - Prisma Setup:
   - Add the `DATABASE_URL` in the `.env` file with your Aiven connection string.
 
   - Synchronize Database:
     ```bash
-    npx prisma db push // synchronize the database 
+    npx prisma db push  
     ```
   - Start the backend server:
     ```bash
